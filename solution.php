@@ -22,7 +22,7 @@ function dates_with_at_least_n_scores($pdo, $n)
 	$sql = "SELECT `date` FROM scores
 GROUP BY `date`
 HAVING COUNT(*) >= $n
-ORDER by `date`";
+ORDER by `date` DESC";
 
 	$rtn = array(); //hold the date values to be returned
 	foreach($pdo->query($sql) as $row) {
@@ -39,7 +39,7 @@ function users_with_top_score_on_date($pdo, $date)
 	SELECT user_id FROM scores
  WHERE score IN (SELECT MAX(score) FROM scores WHERE `date`="$date")
  AND `date`="$date"
- ORDER BY user_id
+ ORDER BY user_id ASC
  
 HERE;
 
