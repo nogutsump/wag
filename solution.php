@@ -75,6 +75,7 @@ SQL;
 		for($i=0; $i<$n; $i++) {
 			if($ordered_grouped_scores[$row['date']][$i] <= $row['score']) {
 				$rtn_dates[] = $row['date'];
+				break;
 			}
 		}
 	}
